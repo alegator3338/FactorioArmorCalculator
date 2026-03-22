@@ -1,0 +1,262 @@
+* {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            background: #1a1a1a;
+            color: #d4d4d4;
+            display: flex;
+            gap: 20px;
+            margin: 20px;
+        }
+
+        #controls {
+            width: 200px;
+            background: #2a2a2a;
+            border: 2px solid #6b6b6b;
+            padding: 15px;
+            border-radius: 3px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #controls h3 {
+            color: #ffa500;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 0 #000;
+            font-weight: normal;
+            border-bottom: 1px solid #6b6b6b;
+            padding-bottom: 5px;
+        }
+
+        #controls label {
+            color: #b9b9b9;
+            font-size: 14px;
+        }
+
+        #controls input {
+            background: #3a3a3a;
+            border: 1px solid #6b6b6b;
+            color: #ffa500;
+            padding: 3px;
+            margin-top: 5px;
+            width: 60px;
+        }
+
+        #controls button {
+            background: #4a4a4a;
+            border: 1px solid #6b6b6b;
+            color: #d4d4d4;
+            padding: 5px 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-family: inherit;
+            border-radius: 2px;
+        }
+
+        #controls button:hover {
+            background: #5a5a5a;
+            border-color: #ffa500;
+            color: #ffa500;
+        }
+
+        #grid {
+            display: grid;
+            border: 2px solid #444;
+            padding: 0;
+            gap: 0;
+            background: #444;
+            position: relative;
+        }
+
+        .cell {
+            background: transparent;
+            border: 1px solid #555;
+            width: 60px;
+            height: 60px;
+        }
+
+        .cell:hover {
+            background: #3a3a3a;
+            border-color: #ffa500;
+        }
+
+        .tile {
+            border: 1px solid #777;
+            background-size: cover;
+            cursor: grab;
+        }
+
+        .tile:hover {
+            border-color: #ffa500;
+        }
+
+        .placed {
+            position: absolute;
+        }
+
+        /* Стили для вкладок */
+        .tabs-container {
+            width: 450px;
+            min-width: 450px;
+            background: #2a2a2a;
+            padding: 15px;
+            border: 2px solid #6b6b6b;
+            border-radius: 3px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .tabs-container h3 {
+            color: #ffa500;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 0 #000;
+            font-weight: normal;
+            border-bottom: 1px solid #6b6b6b;
+            padding-bottom: 5px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 5px 0;
+            background: #3a3a3a;
+            border: 1px solid #6b6b6b;
+            cursor: pointer;
+            border-radius: 5px 5px 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .tab:hover {
+            background: #4a4a4a;
+            border-color: #ffa500;
+        }
+
+        /* Цвета для вкладок качества как в Factorio */
+        .tab:nth-child(1).active {
+            background: #7a7a7a;
+            border-color: #b9b9b9;
+        }
+
+        /* Common */
+        .tab:nth-child(2).active {
+            background: #2a7a2a;
+            border-color: #4caf50;
+        }
+
+        /* Uncommon */
+        .tab:nth-child(3).active {
+            background: #2a4a8a;
+            border-color: #42a5f5;
+        }
+
+        /* Rare */
+        .tab:nth-child(4).active {
+            background: #7a2a7a;
+            border-color: #ab47bc;
+        }
+
+        /* Epic */
+        .tab:nth-child(5).active {
+            background: #b8860b;
+            border-color: #ffb347;
+        }
+
+        /* Legendary */
+
+        .tab.active {
+            border-color: #ffa500;
+        }
+
+        .tab.active img {
+            opacity: 1;
+        }
+
+        .tab img {
+            width: 16px;
+            height: 16px;
+            opacity: 0.9;
+            image-rendering: pixelated;
+        }
+
+        .tab-content {
+            border: 2px solid #444;
+            padding: 10px;
+            min-height: 400px;
+            max-height: 500px;
+            overflow-y: auto;
+            background: #1a1a1a;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        /* Стили для компактного размещения модулей */
+        .modules-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .modules-grid .tile {
+            position: relative;
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        /* Стили для блока с сеткой */
+        div:has(#grid) {
+            padding: 0;
+            border: none;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        div:has(#grid) h3 {
+            color: #ffa500;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 0 #000;
+            font-weight: normal;
+            border-bottom: 1px solid #6b6b6b;
+            padding-bottom: 5px;
+        }
+
+        /* Стили для скроллбара как в Factorio */
+        .tab-content::-webkit-scrollbar {
+            width: 10px;
+            background: #1a1a1a;
+        }
+
+        .tab-content::-webkit-scrollbar-thumb {
+            background: #4a4a4a;
+            border: 1px solid #6b6b6b;
+            border-radius: 2px;
+        }
+
+        .tab-content::-webkit-scrollbar-thumb:hover {
+            background: #5a5a5a;
+            border-color: #ffa500;
+        }
+
+        .tab-content::-webkit-scrollbar-track {
+            background: #2a2a2a;
+            border: 1px solid #3a3a3a;
+        }

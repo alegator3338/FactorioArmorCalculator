@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Factorio Armor Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="controls">
+        <h3>Настройки поля</h3>
+        <label>Ширина: <input type="number" id="gridWidth" value="6" min="6" max="15"></label><br>
+        <label>Высота: <input type="number" id="gridHeight" value="8" min="8" max="17"></label><br>
+        <button onclick="buildGrid()">Применить</button><br><br>
+
+        <h3>Показатели</h3>
+        <label>Производство: <p id="power-output"><b>N/A</b></b></p></label><br>
+        <label>Потребление: <p id="energy-consumption"><b>N/A</b></p></label><br>
+        <label>Ёмкость аккумуляторов: <p id="energy-capacity"><b>N/A</b></p></label><br>
+
+    </div>
+
+    <div class="tabs-container">
+        <h3>Модули</h3>
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab(0)">
+                <img src="./assets/img/СQuality.png" alt="tab1">
+            </div>
+            <div class="tab" onclick="switchTab(1)">
+                <img src="./assets/img/UQuality.png" alt="tab2">
+            </div>
+            <div class="tab" onclick="switchTab(2)">
+                <img src="./assets/img/RQuality.png" alt="tab3">
+            </div>
+            <div class="tab" onclick="switchTab(3)">
+                <img src="./assets/img/EQuality.png" alt="tab4">
+            </div>
+            <div class="tab" onclick="switchTab(4)">
+                <img src="./assets/img/LQuality.png" alt="tab5">
+            </div>
+        </div>
+        <div id="palette-container">
+            <div id="palette-tab-0" class="tab-pane active"></div>
+            <div id="palette-tab-1" class="tab-pane"></div>
+            <div id="palette-tab-2" class="tab-pane"></div>
+            <div id="palette-tab-3" class="tab-pane"></div>
+            <div id="palette-tab-4" class="tab-pane"></div>
+        </div>
+    </div>
+
+    <div class="grid-block">
+        <h3>Сетка</h3>
+        <div id="grid"></div>
+    </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
