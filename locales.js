@@ -1,4 +1,4 @@
-let currentLang = "ru";
+let currentLang = "en";
 let translations = {};
 
 async function loadLanguage(lang) {
@@ -92,4 +92,4 @@ function updateUITexts() {
     }
 }
 
-loadLanguage("ru");
+loadLanguage("en");
