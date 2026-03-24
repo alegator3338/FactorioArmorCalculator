@@ -1,0 +1,49 @@
+{
+    "module_names": {
+        "energyShield": "Energy Shield",
+        "energyShieldMK2": "Energy Shield MK2",
+        "laserDefense": "Personal Laser Defense",
+        "dischargeDefense": "Discharge Defense",
+        "fissionReactor": "Portable Fission Reactor",
+        "fusionReactor": "Portable Fusion Reactor",
+        "battery": "Personal Battery",
+        "batteryMK2": "Personal Battery MK2",
+        "batteryMK3": "Personal Battery MK3",
+        "roboport": "Personal Roboport",
+        "roboportMK2": "Personal Roboport MK2",
+        "solarPanel": "Portable Solar Panel",
+        "exoskeleton": "Exoskeleton",
+        "nightVision": "Night Vision",
+        "toolbelt": "Toolbelt",
+        "beltImmunity": "Belt Immunity Equipment"
+    },
+    "ui": {
+        "controls": "Grid Settings",
+        "width": "Width:",
+        "height": "Height:",
+        "apply": "Apply",
+        "stats": "Stats",
+        "powerOutput": "Power Output:",
+        "energyConsumption": "Energy Consumption:",
+        "energyCapacity": "Battery Capacity:",
+        "modules": "Modules",
+        "grid": "Grid",
+        "language": "Language",
+        "size": "Size:",
+        "powerOutputLabel": "Power Output:",
+        "energyConsumptionLabel": "Energy Consumption:",
+        "energyCapacityLabel": "Battery Capacity:",
+        "internalCapacity": "Internal Energy Capacity:",
+        "shieldCharge": "Shield Charge:",
+        "shieldRechargeRate": "Shield Recharge Rate:",
+        "energyPerHitpoint": "Energy per Hitpoint:",
+        "internalCapacityRechargeRate": "Internal Battery Recharge Rate:",
+        "robotRechargeRate": "Robot Recharge Rate:",
+        "robotChargingSlots": "Charging Slots:",
+        "units": {
+            "units": "units",
+            "unitsPerSec": "units/s",
+            "slots": "slots"
+        }
+    }
+}

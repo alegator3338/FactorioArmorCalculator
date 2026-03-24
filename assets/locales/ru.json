@@ -1,0 +1,49 @@
+{
+    "module_names": {
+        "energyShield": "Энергетический щит",
+        "energyShieldMK2": "Энергетический щит MK2",
+        "laserDefense": "Персональная лазерная защита",
+        "dischargeDefense": "Электроразрядная защита",
+        "fissionReactor": "Портативный реактор деления",
+        "fusionReactor": "Портативный термоядерный реактор",
+        "battery": "Личный аккумулятор",
+        "batteryMK2": "Личный аккумулятор MK2",
+        "batteryMK3": "Личный аккумулятор MK3",
+        "roboport": "Персональная дронстанция",
+        "roboportMK2": "Персональная дронстанция MK2",
+        "solarPanel": "Портативная солнечная панель",
+        "exoskeleton": "Экзоскелет",
+        "nightVision": "Прибор ночного видения",
+        "toolbelt": "Пояс для инструментов",
+        "beltImmunity": "Оборудование игнорирования конвейеров"
+    },
+    "ui": {
+        "controls": "Настройки поля",
+        "width": "Ширина:",
+        "height": "Высота:",
+        "apply": "Применить",
+        "stats": "Показатели",
+        "powerOutput": "Производство:",
+        "energyConsumption": "Потребление:",
+        "energyCapacity": "Ёмкость аккумуляторов:",
+        "modules": "Модули",
+        "grid": "Сетка",
+        "language": "Язык",
+        "size": "Размер:",
+        "powerOutputLabel": "Выработка:",
+        "energyConsumptionLabel": "Потребление:",
+        "energyCapacityLabel": "Ёмкость аккумулятора:",
+        "internalCapacity": "Внутренняя энергоёмкость:",
+        "shieldCharge": "Заряд щита:",
+        "shieldRechargeRate": "Скорость зарядки щита:",
+        "energyPerHitpoint": "Энергии за единицу заряда:",
+        "internalCapacityRechargeRate": "Скорость зарядки внутренних батарей:",
+        "robotRechargeRate": "Скорость зарядки роботов:",
+        "robotChargingSlots": "Слотов зарядки:",
+        "units": {
+            "units": "ед.",
+            "unitsPerSec": "ед./с",
+            "slots": "слотов"
+        }
+    }
+}

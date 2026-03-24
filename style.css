@@ -273,3 +273,29 @@ div:has(#grid) h3 {
     margin: 5px 0;
     border-color: #6b6b6b;
 }
+
+.language-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.lang-btn {
+    background: #4a4a4a;
+    border: 1px solid #6b6b6b;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 2px;
+    transition: all 0.2s;
+}
+
+.lang-btn:hover {
+    background: #5a5a5a;
+    border-color: #ffa500;
+}
+
+.lang-btn img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
