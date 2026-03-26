@@ -306,6 +306,9 @@ function buildGrid() {
     let w = +document.getElementById("gridWidth").value;
     let h = +document.getElementById("gridHeight").value;
     
+    w = Math.floor(w);
+    h = Math.floor(h);
+    
     w = Math.min(Math.max(w, 6), 15);
     h = Math.min(Math.max(h, 8), 17);
     
