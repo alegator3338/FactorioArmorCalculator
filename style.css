@@ -6,9 +6,24 @@ body {
     font-family: 'Segoe UI', 'Arial', sans-serif;
     background: #1a1a1a;
     color: #d4d4d4;
+    margin: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main-title {
+    color: #ffa500;
+    text-align: center;
+    text-shadow: 2px 2px 0 #000;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.main-container {
     display: flex;
     gap: 20px;
-    margin: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 #controls {
@@ -298,4 +313,34 @@ div:has(#grid) h3 {
     width: 24px;
     height: 24px;
     display: block;
+}
+
+.github-link {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #6b6b6b;
+    text-align: center;
+}
+
+.github-link a {
+    color: #d4d4d4;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: color 0.2s;
+}
+
+.github-link a:hover {
+    color: #ffa500;
+}
+
+.github-link img {
+    width: 20px;
+    height: 20px;
+}
+
+.github-link span {
+    font-size: 12px;
 }
