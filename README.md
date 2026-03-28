@@ -1,6 +1,6 @@
 # Factorio Armor Calculator
 
-## Armor calculator for Factorio
+## Armor calculator for Factorio --> [Click](http://factorioarmor.ru)
 [Русский](https://github.com/alegator3338/FactorioArmorCalculator/blob/main/README_RU.md)
 
 ### Features
