@@ -17,4 +17,10 @@
 * ✅ Language selector
 * ✅ Module preview
 * 🟦 Import/Export builds
+* 🟦 Dropdown menu for armor types and vehicles
+* 🟦 Planet selection
+* 🟦 Calculate and display additional stats
+* 🟦 Mobile version
+* 🟦 Crafting resources calculation
+* 🟦 Blueprint export with request chests
 * 🟦 Something else...
