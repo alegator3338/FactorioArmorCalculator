@@ -6,10 +6,10 @@ async function loadLanguage(lang) {
         const response = await fetch(`./assets/locales/${lang}.json`);
         translations = await response.json();
         currentLang = lang;
-        
+
         // Обновляем UI текст
         updateUITexts();
-        
+
         // Пересоздаём только палитру модулей, не трогая сетку
         if (typeof buildPaletteForTab !== 'undefined' && typeof currentTab !== 'undefined') {
             buildPaletteForTab(currentTab);
@@ -43,50 +43,40 @@ function setLanguage(lang) {
 function updateUITexts() {
     const currentWidth = document.getElementById("gridWidth")?.value || "6";
     const currentHeight = document.getElementById("gridHeight")?.value || "8";
-    
+
     const controlsTitle = document.getElementById("controls-title");
     if (controlsTitle) controlsTitle.textContent = t("ui.controls");
-    
+
     const modulesTitle = document.getElementById("modules-title");
     if (modulesTitle) modulesTitle.textContent = t("ui.modules");
-    
+
     const gridTitle = document.getElementById("grid-title");
     if (gridTitle) gridTitle.textContent = t("ui.grid");
-    
+
     const languageTitle = document.getElementById("language-title");
     if (languageTitle) languageTitle.textContent = t("ui.language");
-    
-    const widthLabel = document.getElementById("width-label");
-    if (widthLabel) {
-        widthLabel.innerHTML = `${t("ui.width")} <input type="number" id="gridWidth" value="${currentWidth}" min="6" max="15">`;
-    }
-    
-    const heightLabel = document.getElementById("height-label");
-    if (heightLabel) {
-        heightLabel.innerHTML = `${t("ui.height")} <input type="number" id="gridHeight" value="${currentHeight}" min="8" max="17">`;
-    }
-    
+
     const applyButton = document.getElementById("apply-button");
     if (applyButton) applyButton.textContent = t("ui.apply");
-    
+
     const statsTitle = document.getElementById("stats-title");
     if (statsTitle) statsTitle.textContent = t("ui.stats");
-    
+
     const powerLabel = document.getElementById("power-output-label");
-    if (powerLabel) {
-        powerLabel.innerHTML = `${t("ui.powerOutput")} <p id="power-output"><b>N/A</b></p>`;
-    }
-    
+    if (powerLabel) powerLabel.textContent = t("ui.powerOutput");
+
     const consumptionLabel = document.getElementById("energy-consumption-label");
-    if (consumptionLabel) {
-        consumptionLabel.innerHTML = `${t("ui.energyConsumption")} <p id="energy-consumption"><b>N/A</b></p>`;
-    }
-    
+    if (consumptionLabel) consumptionLabel.textContent = t("ui.energyConsumption");
+
     const capacityLabel = document.getElementById("energy-capacity-label");
-    if (capacityLabel) {
-        capacityLabel.innerHTML = `${t("ui.energyCapacity")} <p id="energy-capacity"><b>N/A</b></p>`;
-    }
-    
+    if (capacityLabel) capacityLabel.textContent = t("ui.energyCapacity");
+
+    const equipmentTitle = document.getElementById("equipment-title");
+    if (equipmentTitle) equipmentTitle.textContent = t("ui.equipment");
+
+    const qualityTitle = document.getElementById("quality-title");
+    if (qualityTitle) qualityTitle.textContent = t("ui.quality");
+
     if (typeof updateStats !== 'undefined') {
         updateStats();
     }

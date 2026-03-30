@@ -1,85 +1,146 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Factorio Armor Calculator</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Factorio Armor Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h2 id="main-title">Factorio Armor Calculator</h2>
+    <h2 id="main-title">Factorio Armor Calculator</h2>
 
-<div class="main-container">
-    <div id="controls">
-        <h3 id="controls-title">Настройки поля</h3>
-        
-        <label id="width-label">Ширина: <input type="number" id="gridWidth" value="6" min="6" max="15"></label><br>
-        <label id="height-label">Высота: <input type="number" id="gridHeight" value="8" min="8" max="17"></label><br>
-        
-        <button id="apply-button" onclick="buildGrid()">Применить</button><br><br>
+    <div class="main-container">
+        <div id="controls">
+            <h3 id="controls-title">Grid Settings</h3>
 
-        <h3 id="stats-title">Показатели</h3>
-        
-        <label id="power-output-label">Производство: <p id="power-output"><b>N/A</b></p></label><br>
-        <label id="energy-consumption-label">Потребление: <p id="energy-consumption"><b>N/A</b></p></label><br>
-        <label id="energy-capacity-label">Ёмкость аккумуляторов: <p id="energy-capacity"><b>N/A</b></p></label><br>
-        
-        <h3 id="language-title">Язык</h3>
-        <div class="language-buttons">
-            <button class="lang-btn" onclick="setLanguage('ru')">
-                <img src="./assets/img/ru.webp" alt="Русский">
-            </button>
-            <button class="lang-btn" onclick="setLanguage('en')">
-                <img src="./assets/img/en.webp" alt="English">
-            </button>
+            <div id="equipment-selector">
+                <h4 id="equipment-title">Equipment</h4>
+                <div class="equipment-buttons-grid">
+                    <button type="button" class="equipment-btn active" data-equipment="modular_armor"
+                        onclick="selectEquipment('modular_armor', this)">
+                        <img src="./assets/img/equipment/modular-armor.webp" alt="Modular Armor">
+                    </button>
+                    <button type="button" class="equipment-btn" data-equipment="power_armor"
+                        onclick="selectEquipment('power_armor', this)">
+                        <img src="./assets/img/equipment/power-armor.webp" alt="Power Armor">
+                    </button>
+                    <button type="button" class="equipment-btn" data-equipment="power_armor_mk2"
+                        onclick="selectEquipment('power_armor_mk2', this)">
+                        <img src="./assets/img/equipment/power-armor-mk2.webp" alt="Power Armor MK2">
+                    </button>
+                    <button type="button" class="equipment-btn" data-equipment="mech_armor"
+                        onclick="selectEquipment('mech_armor', this)">
+                        <img src="./assets/img/equipment/mech-armor.webp" alt="Mech Armor">
+                    </button>
+                    <button type="button" class="equipment-btn" data-equipment="tank"
+                        onclick="selectEquipment('tank', this)">
+                        <img src="./assets/img/equipment/tank.webp" alt="Tank">
+                    </button>
+                    <button type="button" class="equipment-btn" data-equipment="spidertron"
+                        onclick="selectEquipment('spidertron', this)">
+                        <img src="./assets/img/equipment/spidertron.webp" alt="Spidertron">
+                    </button>
+                </div>
+            </div>
+
+            <div id="quality-selector">
+                <h4 id="quality-title">Quality</h4>
+                <div class="quality-buttons">
+                    <label class="quality-option">
+                        <input type="radio" name="quality" value="common" checked>
+                        <img src="./assets/img/СQuality.webp" alt="Common">
+                    </label>
+                    <label class="quality-option">
+                        <input type="radio" name="quality" value="uncommon">
+                        <img src="./assets/img/UQuality.webp" alt="Uncommon">
+                    </label>
+                    <label class="quality-option">
+                        <input type="radio" name="quality" value="rare">
+                        <img src="./assets/img/RQuality.webp" alt="Rare">
+                    </label>
+                    <label class="quality-option">
+                        <input type="radio" name="quality" value="epic">
+                        <img src="./assets/img/EQuality.webp" alt="Epic">
+                    </label>
+                    <label class="quality-option">
+                        <input type="radio" name="quality" value="legendary">
+                        <img src="./assets/img/LQuality.webp" alt="Legendary">
+                    </label>
+                </div>
+            </div>
+
+            <button id="apply-button" onclick="buildGrid()">Apply</button><br><br>
+
+            <h3 id="stats-title">Stats</h3>
+
+            <div id="stats-grid">
+                <span id="power-output-label"></span>
+                <span id="power-output"><b>N/A</b></span>
+
+                <span id="energy-consumption-label"></span>
+                <span id="energy-consumption"><b>N/A</b></span>
+
+                <span id="energy-capacity-label"></span>
+                <span id="energy-capacity"><b>N/A</b></span>
+            </div>
+
+            <h3 id="language-title">Language</h3>
+            <div class="language-buttons">
+                <button class="lang-btn" onclick="setLanguage('ru')">
+                    <img src="./assets/img/ru.webp" alt="Русский">
+                </button>
+                <button class="lang-btn" onclick="setLanguage('en')">
+                    <img src="./assets/img/en.webp" alt="English">
+                </button>
+            </div>
+
+            <div class="github-link">
+                <a href="https://github.com/alegator3338/FactorioArmorCalculator" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="./assets/img/github.webp" alt="GitHub">
+                    <h5>alegator3338</h5>
+                </a>
+            </div>
         </div>
 
-        <div class="github-link">
-        <a href="https://github.com/alegator3338/FactorioArmorCalculator" target="_blank" rel="noopener noreferrer">
-            <img src="./assets/img/github.webp" alt="GitHub">
-            <h5>alegator3338</h5>
-        </a>
-    </div>
-    </div>
-
-    <div class="tabs-container">
-        <h3 id="modules-title">Модули</h3>
-        <div class="tabs">
-            <div class="tab active" onclick="switchTab(0)">
-                <img src="./assets/img/СQuality.webp" alt="tab1">
+        <div class="tabs-container">
+            <h3 id="modules-title">Модули</h3>
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab(0)">
+                    <img src="./assets/img/СQuality.webp" alt="tab1">
+                </div>
+                <div class="tab" onclick="switchTab(1)">
+                    <img src="./assets/img/UQuality.webp" alt="tab2">
+                </div>
+                <div class="tab" onclick="switchTab(2)">
+                    <img src="./assets/img/RQuality.webp" alt="tab3">
+                </div>
+                <div class="tab" onclick="switchTab(3)">
+                    <img src="./assets/img/EQuality.webp" alt="tab4">
+                </div>
+                <div class="tab" onclick="switchTab(4)">
+                    <img src="./assets/img/LQuality.webp" alt="tab5">
+                </div>
             </div>
-            <div class="tab" onclick="switchTab(1)">
-                <img src="./assets/img/UQuality.webp" alt="tab2">
-            </div>
-            <div class="tab" onclick="switchTab(2)">
-                <img src="./assets/img/RQuality.webp" alt="tab3">
-            </div>
-            <div class="tab" onclick="switchTab(3)">
-                <img src="./assets/img/EQuality.webp" alt="tab4">
-            </div>
-            <div class="tab" onclick="switchTab(4)">
-                <img src="./assets/img/LQuality.webp" alt="tab5">
+            <div id="palette-container">
+                <div id="palette-tab-0" class="tab-pane active"></div>
+                <div id="palette-tab-1" class="tab-pane"></div>
+                <div id="palette-tab-2" class="tab-pane"></div>
+                <div id="palette-tab-3" class="tab-pane"></div>
+                <div id="palette-tab-4" class="tab-pane"></div>
             </div>
         </div>
-        <div id="palette-container">
-            <div id="palette-tab-0" class="tab-pane active"></div>
-            <div id="palette-tab-1" class="tab-pane"></div>
-            <div id="palette-tab-2" class="tab-pane"></div>
-            <div id="palette-tab-3" class="tab-pane"></div>
-            <div id="palette-tab-4" class="tab-pane"></div>
+
+        <div class="grid-block">
+            <h3 id="grid-title">Сетка</h3>
+            <div id="grid"></div>
         </div>
     </div>
 
-    <div class="grid-block">
-        <h3 id="grid-title">Сетка</h3>
-        <div id="grid"></div>
-    </div>
-</div>
-
-  <script src="locales.js"></script>
-  <script src="script.js"></script>
+    <script src="locales.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

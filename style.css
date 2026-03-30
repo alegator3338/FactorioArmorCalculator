@@ -27,12 +27,14 @@ body {
 }
 
 #controls {
-    width: 200px;
+    width: 250px;
     background: #2a2a2a;
     border: 2px solid #6b6b6b;
     padding: 15px;
     border-radius: 3px;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
 }
 
 #controls h3 {
@@ -292,7 +294,10 @@ div:has(#grid) h3 {
 .language-buttons {
     display: flex;
     gap: 10px;
-    margin-top: 15px;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
 }
 
 .lang-btn {
@@ -343,4 +348,123 @@ div:has(#grid) h3 {
 
 .github-link span {
     font-size: 12px;
+}
+
+/* ── Equipment selector ─────────────────────────────────────────────────────── */
+
+.equipment-buttons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.equipment-btn {
+    background: #3a3a3a;
+    /* Фиксированный border, чтобы размер кнопки не менялся при выборе */
+    border: 2px solid #6b6b6b;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    transition: background 0.2s, border-color 0.2s, outline 0.2s;
+    width: 100%;
+    /* outline рисуется снаружи — не влияет на размер */
+    outline: 2px solid transparent;
+    outline-offset: 1px;
+}
+
+.equipment-btn img {
+    width: 48px;
+    height: 48px;
+}
+
+.equipment-btn:hover {
+    background: #4a4a4a;
+    border-color: #ffa500;
+}
+
+.equipment-btn.active {
+    border-color: #ffa500;
+    background: #3a3a3a;
+    outline: 2px solid #ffa500;
+    outline-offset: 1px;
+    box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+}
+
+.equipment-btn.active span {
+    color: #ffa500;
+    font-weight: bold;
+}
+
+.equipment-btn span {
+    font-size: 10px;
+    color: #d4d4d4;
+    text-align: center;
+}
+
+/* ── Quality selector ───────────────────────────────────────────────────────── */
+
+.quality-buttons {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+    justify-content: space-between;
+}
+
+.quality-option {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.quality-option input {
+    display: none;
+}
+
+.quality-option img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.6;
+    transition: opacity 0.2s, outline 0.2s;
+    /* Фиксированный border-radius для outline */
+    border-radius: 4px;
+    cursor: pointer;
+    /* Прозрачный outline как placeholder — размер иконки не меняется */
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.quality-option input:checked + img {
+    opacity: 1;
+    outline: 2px solid #ffa500;
+    outline-offset: 2px;
+}
+
+.quality-option:hover img {
+    opacity: 0.8;
+}
+
+#stats-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4px 8px;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+
+#stats-grid span:nth-child(odd) {
+    color: #b9b9b9;
+}
+
+#stats-grid span:nth-child(even) {
+    color: #ffa500;
+    text-align: right;
+    white-space: nowrap;
 }

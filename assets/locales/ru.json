@@ -19,8 +19,6 @@
     },
     "ui": {
         "controls": "Настройки поля",
-        "width": "Ширина:",
-        "height": "Высота:",
         "apply": "Применить",
         "stats": "Показатели",
         "powerOutput": "Производство:",
@@ -40,6 +38,9 @@
         "internalCapacityRechargeRate": "Скорость зарядки внутренних батарей:",
         "robotRechargeRate": "Скорость зарядки роботов:",
         "robotChargingSlots": "Слотов зарядки:",
+        "equipment": "Снаряжение",
+        "quality": "Качество",
+        "unsupportedEquipment": "Это снаряжение пока не поддерживается.",
         "units": {
             "units": "ед.",
             "unitsPerSec": "ед./с",

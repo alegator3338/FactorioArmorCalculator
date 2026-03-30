@@ -19,8 +19,6 @@
     },
     "ui": {
         "controls": "Grid Settings",
-        "width": "Width:",
-        "height": "Height:",
         "apply": "Apply",
         "stats": "Stats",
         "powerOutput": "Power Output:",
@@ -40,6 +38,9 @@
         "internalCapacityRechargeRate": "Internal Battery Recharge Rate:",
         "robotRechargeRate": "Robot Recharge Rate:",
         "robotChargingSlots": "Charging Slots:",
+        "equipment": "Equipment",
+        "quality": "Quality",
+        "unsupportedEquipment": "This equipment is not yet supported.",
         "units": {
             "units": "units",
             "unitsPerSec": "units/s",

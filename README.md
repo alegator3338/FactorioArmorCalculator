@@ -17,8 +17,8 @@
 * ✅ Language selector
 * ✅ Module preview
 * 🟦 Import/Export builds
-* 🟦 Dropdown menu for armor types and vehicles
-* 🟦 Planet selection
+* ~~🟦 Dropdown menu for armor types and vehicles~~ ✅ Equipment selector
+* 🟦 Planet selector
 * 🟦 Calculate and display additional stats
 * 🟦 Mobile version
 * 🟦 Crafting resources calculation
