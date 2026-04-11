@@ -43,7 +43,6 @@ const tabTiles = [
         new Tile({ id: "t0_m14", name: "toolbelt", w: 3, h: 1, texture: "./assets/img/common/toolbelt-equipment.webp" }),
         new Tile({ id: "t0_m15", name: "beltImmunity", w: 1, h: 1, texture: "./assets/img/common/belt-immunity-equipment.webp", energyConsumption: 100, internalCapacity: 100 }),
     ],
-    // ── Uncommon ──
     [
         new Tile({ id: "t1_m0", name: "energyShield", w: 2, h: 2, texture: "./assets/img/uncommon/energy-shield-equipment.webp", energyConsumption: 312, internalCapacity: 120, shieldHitpoints: 65, shieldRechargeRate: 15.6, energyPerHitpoint: 20 }),
         new Tile({ id: "t1_m1", name: "energyShieldMK2", w: 2, h: 2, texture: "./assets/img/uncommon/energy-shield-mk2-equipment.webp", energyConsumption: 468, internalCapacity: 180, shieldHitpoints: 195, shieldRechargeRate: 15.6, energyPerHitpoint: 30 }),
@@ -62,7 +61,6 @@ const tabTiles = [
         new Tile({ id: "t1_m14", name: "toolbelt", w: 3, h: 1, texture: "./assets/img/uncommon/toolbelt-equipment.webp" }),
         new Tile({ id: "t1_m15", name: "beltImmunity", w: 1, h: 1, texture: "./assets/img/uncommon/belt-immunity-equipment.webp", energyConsumption: 76.92, internalCapacity: 100 }),
     ],
-    // ── Rare ──
     [
         new Tile({ id: "t2_m0", name: "energyShield", w: 2, h: 2, texture: "./assets/img/rare/energy-shield-equipment.webp", energyConsumption: 384, internalCapacity: 120, shieldHitpoints: 80, shieldRechargeRate: 19.2, energyPerHitpoint: 20 }),
         new Tile({ id: "t2_m1", name: "energyShieldMK2", w: 2, h: 2, texture: "./assets/img/rare/energy-shield-mk2-equipment.webp", energyConsumption: 576, internalCapacity: 180, shieldHitpoints: 240, shieldRechargeRate: 19.2, energyPerHitpoint: 30 }),
@@ -81,7 +79,6 @@ const tabTiles = [
         new Tile({ id: "t2_m14", name: "toolbelt", w: 3, h: 1, texture: "./assets/img/rare/toolbelt-equipment.webp" }),
         new Tile({ id: "t2_m15", name: "beltImmunity", w: 1, h: 1, texture: "./assets/img/rare/belt-immunity-equipment.webp", energyConsumption: 62.50, internalCapacity: 100 }),
     ],
-    // ── Epic ──
     [
         new Tile({ id: "t3_m0", name: "energyShield", w: 2, h: 2, texture: "./assets/img/epic/energy-shield-equipment.webp", energyConsumption: 456, internalCapacity: 120, shieldHitpoints: 95, shieldRechargeRate: 22.8, energyPerHitpoint: 20 }),
         new Tile({ id: "t3_m1", name: "energyShieldMK2", w: 2, h: 2, texture: "./assets/img/epic/energy-shield-mk2-equipment.webp", energyConsumption: 648, internalCapacity: 180, shieldHitpoints: 285, shieldRechargeRate: 22.8, energyPerHitpoint: 30 }),
@@ -100,7 +97,6 @@ const tabTiles = [
         new Tile({ id: "t3_m14", name: "toolbelt", w: 3, h: 1, texture: "./assets/img/epic/toolbelt-equipment.webp" }),
         new Tile({ id: "t3_m15", name: "beltImmunity", w: 1, h: 1, texture: "./assets/img/epic/belt-immunity-equipment.webp", energyConsumption: 52.63, internalCapacity: 100 }),
     ],
-    // ── Legendary ──
     [
         new Tile({ id: "t4_m0", name: "energyShield", w: 2, h: 2, texture: "./assets/img/legendary/energy-shield-equipment.webp", energyConsumption: 600, internalCapacity: 120, shieldHitpoints: 125, shieldRechargeRate: 30, energyPerHitpoint: 20 }),
         new Tile({ id: "t4_m1", name: "energyShieldMK2", w: 2, h: 2, texture: "./assets/img/legendary/energy-shield-mk2-equipment.webp", energyConsumption: 900, internalCapacity: 180, shieldHitpoints: 375, shieldRechargeRate: 30, energyPerHitpoint: 30 }),
@@ -121,7 +117,6 @@ const tabTiles = [
     ],
 ];
 
-// ── Equipment grid sizes ──────────────────────────────────────────────────────
 const equipmentGridSizes = {
     modular_armor: { common: { w: 5, h: 5 }, uncommon: { w: 6, h: 6 }, rare: { w: 7, h: 7 }, epic: { w: 8, h: 8 }, legendary: { w: 10, h: 10 } },
     power_armor: { common: { w: 6, h: 8 }, uncommon: { w: 7, h: 9 }, rare: { w: 8, h: 10 }, epic: { w: 9, h: 11 }, legendary: { w: 11, h: 13 } },
@@ -131,7 +126,6 @@ const equipmentGridSizes = {
     spidertron: { common: { w: 10, h: 6 }, uncommon: { w: 11, h: 7 }, rare: { w: 12, h: 8 }, epic: { w: 13, h: 9 }, legendary: { w: 15, h: 11 } },
 };
 
-// ── State ─────────────────────────────────────────────────────────────────────
 let gridData = [];
 let instances = {};
 let instanceCounter = 0;
@@ -145,22 +139,26 @@ const drag = {
     instanceId: null,
     dropped: false,
     validDrop: false,
+    grabCellX: 0,
+    grabCellY: 0,
 
     startNew(tile) {
         this.active = true; this.tile = tile;
         this.instanceId = null; this.dropped = false; this.validDrop = false;
+        this.grabCellX = 0; this.grabCellY = 0;  // ← новое
     },
     startMove(tile, id) {
         this.active = true; this.tile = tile;
         this.instanceId = id; this.dropped = false; this.validDrop = false;
+        this.grabCellX = 0; this.grabCellY = 0;  // ← новое
     },
     reset() {
         this.active = false; this.tile = null;
         this.instanceId = null; this.dropped = false; this.validDrop = false;
+        this.grabCellX = 0; this.grabCellY = 0;  // ← новое
     }
 };
 
-// ── DOM refs ──────────────────────────────────────────────────────────────────
 const tabPanes = Array.from({ length: 5 }, (_, i) =>
     document.getElementById(`palette-tab-${i}`)
 );
@@ -171,7 +169,6 @@ let gridAC = null;
 let previewEl = null;
 let tooltipEl = null;
 
-// ── Format helpers ────────────────────────────────────────────────────────────
 function formatPower(kw) {
     return kw >= 1000 ? `${(kw / 1000).toFixed(2)} MW` : `${kw} kW`;
 }
@@ -307,6 +304,8 @@ function createInstance(tile, x, y) {
 
     el.addEventListener("dragstart", e => {
         drag.startMove(tile, id);
+        drag.grabCellX = Math.floor(e.offsetX / CELL_SIZE);
+        drag.grabCellY = Math.floor(e.offsetY / CELL_SIZE);
         e.dataTransfer.setData("type", "move");
         e.dataTransfer.setData("instanceId", id);
         setInvisibleDragImage(e);
@@ -324,6 +323,8 @@ function createInstance(tile, x, y) {
     updatePosition(inst);
     occupy(tile, x, y, id);
     updateStats();
+
+    touchDrag.addTouchToPlacedTile(el, tile, id);
 }
 
 function moveInstance(id, newX, newY) {
@@ -390,8 +391,8 @@ function buildGrid() {
         e.preventDefault();
         if (!drag.active || !drag.tile) return;
         const rect = grid.getBoundingClientRect();
-        const gx = Math.floor((e.clientX - rect.left) / CELL_SIZE);
-        const gy = Math.floor((e.clientY - rect.top) / CELL_SIZE);
+        const gx = Math.floor((e.clientX - rect.left) / CELL_SIZE) - drag.grabCellX;
+        const gy = Math.floor((e.clientY - rect.top) / CELL_SIZE) - drag.grabCellY;
         const tile = drag.tile;
         if (gx >= 0 && gy >= 0 && gx + tile.w <= w && gy + tile.h <= h) {
             showPreview(tile, gx, gy, canPlace(tile, gx, gy, drag.instanceId));
@@ -410,7 +411,6 @@ function buildGrid() {
         hidePreview();
     }, { signal });
 
-    // Создаём ячейки.
     for (let y = 0; y < h; y++) {
         for (let x = 0; x < w; x++) {
             const cell = document.createElement("div");
@@ -426,13 +426,17 @@ function buildGrid() {
                 const type = e.dataTransfer.getData("type");
                 if (type === "new") {
                     const tile = JSON.parse(e.dataTransfer.getData("tile"));
-                    if (canPlace(tile, x, y)) {
+                    const tx = x - drag.grabCellX;
+                    const ty = y - drag.grabCellY;
+                    if (canPlace(tile, tx, ty)) {
                         drag.validDrop = true;
-                        createInstance(tile, x, y);
+                        createInstance(tile, tx, ty);
                     }
                 } else if (type === "move") {
                     const id = e.dataTransfer.getData("instanceId");
-                    drag.validDrop = moveInstance(id, x, y);
+                    const tx = x - drag.grabCellX;
+                    const ty = y - drag.grabCellY;
+                    drag.validDrop = moveInstance(id, tx, ty);
                 }
                 hidePreview();
             });
@@ -465,6 +469,8 @@ function buildPaletteForTab(tabIndex) {
 
         el.addEventListener("dragstart", e => {
             drag.startNew(tile);
+            drag.grabCellX = Math.floor(e.offsetX / CELL_SIZE);
+            drag.grabCellY = Math.floor(e.offsetY / CELL_SIZE);
             e.dataTransfer.setData("type", "new");
             e.dataTransfer.setData("tile", JSON.stringify(tile));
             setInvisibleDragImage(e);
@@ -475,6 +481,7 @@ function buildPaletteForTab(tabIndex) {
             drag.reset();
         });
 
+        touchDrag.addTouchToPaletteTile(el, tile);
         container.appendChild(el);
     });
 

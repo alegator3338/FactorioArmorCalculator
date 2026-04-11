@@ -103,6 +103,9 @@ body {
     border: 1px solid #777;
     background-size: cover;
     cursor: grab;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .tile:hover {
@@ -350,8 +353,6 @@ div:has(#grid) h3 {
     font-size: 12px;
 }
 
-/* ── Equipment selector ─────────────────────────────────────────────────────── */
-
 .equipment-buttons-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -361,7 +362,6 @@ div:has(#grid) h3 {
 
 .equipment-btn {
     background: #3a3a3a;
-    /* Фиксированный border, чтобы размер кнопки не менялся при выборе */
     border: 2px solid #6b6b6b;
     border-radius: 5px;
     padding: 8px;
@@ -372,7 +372,6 @@ div:has(#grid) h3 {
     gap: 5px;
     transition: background 0.2s, border-color 0.2s, outline 0.2s;
     width: 100%;
-    /* outline рисуется снаружи — не влияет на размер */
     outline: 2px solid transparent;
     outline-offset: 1px;
 }
@@ -406,8 +405,6 @@ div:has(#grid) h3 {
     text-align: center;
 }
 
-/* ── Quality selector ───────────────────────────────────────────────────────── */
-
 .quality-buttons {
     display: flex;
     gap: 5px;
@@ -432,15 +429,13 @@ div:has(#grid) h3 {
     height: 24px;
     opacity: 0.6;
     transition: opacity 0.2s, outline 0.2s;
-    /* Фиксированный border-radius для outline */
     border-radius: 4px;
     cursor: pointer;
-    /* Прозрачный outline как placeholder — размер иконки не меняется */
     outline: 2px solid transparent;
     outline-offset: 2px;
 }
 
-.quality-option input:checked + img {
+.quality-option input:checked+img {
     opacity: 1;
     outline: 2px solid #ffa500;
     outline-offset: 2px;
@@ -467,4 +462,44 @@ div:has(#grid) h3 {
     color: #ffa500;
     text-align: right;
     white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    body {
+        margin: 10px;
+    }
+
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #controls {
+        width: 100%;
+        max-width: 500px;
+        box-sizing: border-box;
+    }
+
+    .tabs-container {
+        width: 100%;
+        min-width: unset;
+        max-width: 500px;
+        box-sizing: border-box;
+    }
+
+    /* Обёртка вокруг сетки */
+    .grid-block {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Тултип на мобиле — показываем сверху экрана, не под пальцем */
+    .tooltip {
+        top: 10px !important;
+        left: 50% !important;
+        transform: translateX(-50%);
+        white-space: normal;
+        max-width: 90vw;
+    }
 }

@@ -10,17 +10,18 @@
 * Stat calculator
 * Quality tiers support
 * Additional stats in tooltip
+* Mobile version (if anyone needs it)
 
 ### TODO:
 
 * ✅ Tooltip
 * ✅ Language selector
 * ✅ Module preview
-* 🟦 Import/Export builds
+* ✅ Mobile version
 * ~~🟦 Dropdown menu for armor types and vehicles~~ ✅ Equipment selector
+* 🟦 Import/Export builds
 * 🟦 Planet selector
 * 🟦 Calculate and display additional stats
-* 🟦 Mobile version
 * 🟦 Crafting resources calculation
 * 🟦 Blueprint export with request chests
 * 🟦 Something else...
